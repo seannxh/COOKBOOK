@@ -1,0 +1,9 @@
+<%- include('../partials/_navbar.ejs') %>
+
+<h1>Edit Ingredient</h1>
+<form action="/ingredients/<%= ingredient._id %>?_method=PUT" method="POST">
+  <label for="name">Ingredient Name:</label>
+  <input type="text" name="name" value="<%= ingredient.name %>" required>
+
+  <button type="submit">Update Ingredient</button>
+</form>

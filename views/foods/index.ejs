@@ -1,0 +1,21 @@
+<%- include('../partials/_navbar') %>
+
+<h1>Welcome to My Pantry</h1>
+
+<% if (pantry.length > 0) { %>
+  <ul>
+    <% pantry.forEach(item => { %>
+      <li>
+        <%= item.name %>
+        <form action="/users/<%= user._id %>/foods/<%= item._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+        <a href="/users/<%= user._id %>/foods/<%= item._id %>/edit">Edit</a>
+      </li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No items in your pantry.</p>
+<% } %>
+
+<a href="/users/<%= user._id %>/foods/new">Add New Item</a>
